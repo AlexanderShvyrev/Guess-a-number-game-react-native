@@ -6,6 +6,7 @@ import Input from '../components/Input'
 import NumberContainer from '../components/NumberContainer'
 import BodyText from '../components/BodyText'
 import TitleText from '../components/TitleText';
+import MainButton from '../components/MainButton';
 
 
 
@@ -43,7 +44,7 @@ const StartGameScreen = (props) => {
             <Card style={styles.summaryContainer}>
                 <Text>You selected:</Text>
                 <NumberContainer>{selectedNumber}</NumberContainer>
-                <Button title="Start Game" color={Colors.primary} onPress={() => props.startGameHandler(selectedNumber)} />
+                <MainButton style={{ backgroundColor: Colors.primary }} onPress={() => props.startGameHandler(selectedNumber)}>Start Game</MainButton>
             </Card>
     }
 
@@ -64,16 +65,15 @@ const StartGameScreen = (props) => {
                     />
                     <View style={styles.buttonContainer}>
                         <View style={styles.button}>
-                            <Button
-                                title="Reset"
+                            <MainButton
                                 onPress={resetInputHandler}
-                                color={Colors.secondary} />
+                                style={{ backgroundColor: Colors.secondary }}>Reset</MainButton>
                         </View>
                         <View style={styles.button}>
-                            <Button
-                                title="Confirm"
+                            <MainButton
+                                style={{ backgroundColor: Colors.primary }}
                                 onPress={confirmInputHandler}
-                                color={Colors.primary} />
+                            >Confirm</MainButton>
                         </View>
                     </View>
                 </Card>
@@ -102,10 +102,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between',
-        paddingHorizontal: 15
+        paddingHorizontal: 5
     },
     button: {
         width: 100,
+
     },
     input: {
         width: 50,
